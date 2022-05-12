@@ -23,6 +23,7 @@ function Movie(movieData) {
         </div>
 
         <h2>{movieData.overview}</h2>
+        <p>test</p>
       </div>
     </div>
   );
