@@ -19,7 +19,7 @@ function SlideShow({ results }) {
           <div key={result.id} className="cursor-pointer">
             <Image
               src={`${BASE_URL}${result.backdrop_path}`}
-              height={700}
+              height={500}
               width={1920}
               objectFit="cover"
               alt={result.title}

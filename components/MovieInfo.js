@@ -1,7 +1,11 @@
 import TrailerButton from "./TrailerButton";
 import Link from "next/link";
 import { ChevronLeftIcon } from "@heroicons/react/outline";
-import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
+import {
+  CircularProgress,
+  CircularProgressLabel,
+  Badge,
+} from "@chakra-ui/react";
 
 function MovieInfo({
   title,
@@ -52,13 +56,22 @@ function MovieInfo({
         <h1 className="text-3xl">{title}</h1>
         <span>{originalTitle}</span>
 
-        <div className="flex gap-5 text-sm font-light tracking-wide">
-          <p className="">{genres.map((genre) => genre.name + " ")}</p>
-          <p>{releaseYear}</p>
-          <p>{runtime}min</p>
+        <div className="flex flex-wrap gap-5 mt-5 text-sm font-light tracking-wide">
+          {genres.map((genre) => (
+            <Badge variant="subtle" colorScheme="green" key={genre.id}>
+              {genre.name}
+            </Badge>
+          ))}
+
+          <Badge variant="outline" colorScheme="whatsapp">
+            {releaseYear}
+          </Badge>
+          <Badge variant="outline" colorScheme="whatsapp">
+            {runtime} min
+          </Badge>
         </div>
 
-        <p className="mt-5 lg:w-1/2 xl:w-1/3">{movieDescription}</p>
+        <p className="mt-8 lg:w-1/2 xl:w-1/3">{movieDescription}</p>
       </section>
 
       <div className="flex items-center mt-10 gap-9">
