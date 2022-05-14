@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ["links.papareact.com", "image.tmdb.org"],
   },
+  experimental: {
+    scrollRestoration: true,
+  },
 };
 
 module.exports = nextConfig;

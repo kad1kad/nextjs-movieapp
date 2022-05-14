@@ -1,6 +1,5 @@
 import Thumbnail from "./Thumbnail";
 import FlipMove from "react-flip-move";
-import Link from "next/link";
 
 function Results({ results }) {
   return (
