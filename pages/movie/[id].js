@@ -8,7 +8,7 @@ import SimilarMovies from "../../components/SimilarMovies";
 function Movie({ movieData, trailerData, results, movieCredits }) {
   console.log(movieCredits.cast);
   return (
-    <div className="relative h-screen overflow-x-hidden">
+    <div className="relative h-screen overflow-x-clip">
       <Image
         src={
           `${BASE_URL}${movieData.backdrop_path || movieData.poster_path}` ||
@@ -30,7 +30,7 @@ function Movie({ movieData, trailerData, results, movieCredits }) {
         year={movieData.release_date}
         runtime={movieData.runtime}
       >
-        <h1 className="mt-20 text-xl">Actors</h1>
+        <h1 className="mt-20 text-xl">Credits</h1>
         <MovieCredits credits={movieCredits.cast} />
 
         <h2 className="mt-20 text-2xl ">Similar Movies</h2>

@@ -1,13 +1,25 @@
 import requests from "../utils/requests";
 import { useRouter } from "next/router";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+  Button,
+} from "@chakra-ui/react";
 
 function Nav() {
   const router = useRouter();
 
   return (
-    <nav className="relative">
-      <div className="flex px-10 space-x-10 overflow-x-scroll text-xl sm:px-10 whitespace-nowrap sm:space-x-20 scrollbar-hide">
-        {Object.entries(requests).map(([key, { title }]) => (
+    <div className="flex px-10 space-x-10 overflow-x-scroll text-xl sm:px-10 whitespace-nowrap sm:space-x-20 scrollbar-hide">
+      {Object.entries(requests)
+        .slice(0, 2)
+        .map(([key, { title }]) => (
           <h2
             key={key}
             onClick={() => router.push(`/?genre=${key}`)}
@@ -16,9 +28,24 @@ function Nav() {
             {title}
           </h2>
         ))}
-      </div>
-      <div className="absolute top-0 right-0 bg-gradient-to-l from-[#0e1515] h-10 w-1/12" />
-    </nav>
+
+      <Menu>
+        <MenuButton>Genres</MenuButton>
+        <MenuList className="!bg-slate-100/90 !border-0 ">
+          {Object.entries(requests)
+            .slice(3, 11)
+            .map(([key, { title }]) => (
+              <MenuItem
+                className="text-xl !text-slate-900"
+                key={key}
+                onClick={() => router.push(`/?genre=${key}`)}
+              >
+                {title}
+              </MenuItem>
+            ))}
+        </MenuList>
+      </Menu>
+    </div>
   );
 }
 

@@ -28,7 +28,7 @@ function MovieInfo({
 
   let originalTitle;
   if (origTitle === title) {
-    originalTitle = "";
+    originalTitle = !origTitle;
   } else {
     originalTitle = origTitle;
   }
@@ -42,18 +42,19 @@ function MovieInfo({
   }
 
   const releaseYear = year.slice(0, 4);
+  console.log(genres);
 
   return (
-    <div className="absolute top-0 w-screen p-5 text-gray-100 bg-gradient-to-b from-slate-900/50">
+    <div className="absolute top-0 w-screen p-5 text-gray-100 bg-gradient-to-b from-slate-900/70">
       {/* COMPONENT THIS INFO BELOW */}
-      <section className="my-5">
+      <section className="my-3">
         <Link href="/">
           <a className="flex items-center mb-5 hover:underline underline-offset-8">
             <ChevronLeftIcon className="inline h-5" /> Home
           </a>
         </Link>
 
-        <h1 className="text-3xl">{title}</h1>
+        <h1 className="text-3xl font-semibold">{title}</h1>
         <span>{originalTitle}</span>
 
         <div className="flex flex-wrap gap-5 mt-5 text-sm font-light tracking-wide">

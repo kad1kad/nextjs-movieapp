@@ -7,7 +7,7 @@ import Link from "next/link";
 const Thumbnail = forwardRef(({ result }, ref) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
   const releaseDate = result.release_date || result.first_air_date;
-  const releaseYear = releaseDate.slice(0, 4);
+  const releaseYear = releaseDate?.slice(0, 4);
 
   return (
     <div
@@ -24,6 +24,7 @@ const Thumbnail = forwardRef(({ result }, ref) => {
           width={1920}
           layout="responsive"
           alt={result.title}
+          className="shadow-lg rounded-xl"
         />
       </Link>
       <div className="py-2">
