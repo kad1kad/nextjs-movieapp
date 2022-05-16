@@ -3,6 +3,10 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import Image from "next/image";
 import Nav from "./Nav";
+import {
+  NumberIncrementStepper,
+  useAccordionItemState,
+} from "@chakra-ui/react";
 
 const BASE_URL = "https://image.tmdb.org/t/p/original";
 
@@ -42,6 +46,7 @@ function Header({ results }) {
       },
     ]
   );
+
   console.log(results);
   return (
     <header className="relative w-screen">
@@ -51,7 +56,7 @@ function Header({ results }) {
         <div className="absolute top-0 flex items-center mt-3">
           <Link href="/">
             <a>
-              <h1 className="top-0 z-30 tracking-widest text-transparent md:text-4xl sm:text-2xl bg-clip-text bg-gradient-to-r from-indigo-500 via-cyan-700 to-indigo-700">
+              <h1 className="top-0 z-30 tracking-widest text-transparent md:text-4xl sm:text-md bg-clip-text bg-gradient-to-r from-indigo-500 via-cyan-700 to-indigo-700">
                 MOVIE DISC
               </h1>
             </a>
@@ -72,6 +77,7 @@ function Header({ results }) {
                 <p className="max-w-sm truncate ">{results[0].overview} </p>
               </div>
               <Image
+                priority={true}
                 src={
                   `${BASE_URL}${
                     results[0].backdrop_path || results[0].poster_path

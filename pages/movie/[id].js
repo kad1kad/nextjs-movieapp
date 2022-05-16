@@ -33,7 +33,7 @@ function Movie({ movieData, trailerData, results, movieCredits }) {
         <h1 className="mt-20 text-xl">Credits</h1>
         <MovieCredits credits={movieCredits.cast} />
 
-        <h2 className="mt-20 text-2xl ">Similar Movies</h2>
+        <h2 className="mt-10 text-2xl ">Similar Movies</h2>
         <SimilarMovies results={results} />
       </MovieInfo>
     </div>

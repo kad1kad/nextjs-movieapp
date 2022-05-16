@@ -1,19 +1,16 @@
 /* eslint-disable react/display-name */
 import { ThumbUpIcon } from "@heroicons/react/outline";
 import Image from "next/image";
-import { forwardRef } from "react";
+
 import Link from "next/link";
 
-const Thumbnail = forwardRef(({ result }, ref) => {
+function Thumbnail({ result }) {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
   const releaseDate = result.release_date || result.first_air_date;
   const releaseYear = releaseDate?.slice(0, 4);
 
   return (
-    <div
-      ref={ref}
-      className="p-2 transition duration-150 ease-in transform cursor-pointer group sm:hover:scale-105 hover:z-8"
-    >
+    <div className="p-2 transition duration-150 ease-in transform cursor-pointer group sm:hover:scale-105 hover:z-8">
       <Link href={`/movie/${result.id}`} key={result.id}>
         <Image
           src={
@@ -38,6 +35,6 @@ const Thumbnail = forwardRef(({ result }, ref) => {
       </p>
     </div>
   );
-});
+}
 
 export default Thumbnail;
