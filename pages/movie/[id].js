@@ -1,14 +1,19 @@
-const API_KEY = process.env.API_KEY;
-const BASE_URL = "https://image.tmdb.org/t/p/original";
+import Head from "next/head";
 import Image from "next/image";
 import MovieCredits from "../../components/MovieCredits";
 import MovieInfo from "../../components/MovieInfo";
 import SimilarMovies from "../../components/SimilarMovies";
 
+const API_KEY = process.env.API_KEY;
+const BASE_URL = "https://image.tmdb.org/t/p/original";
+
 function Movie({ movieData, trailerData, results, movieCredits }) {
   console.log(movieCredits.cast);
   return (
     <div className="relative h-screen overflow-x-clip">
+      <Head>
+        <title>{movieData.title} • Movie Disc</title>
+      </Head>
       <Image
         src={
           `${BASE_URL}${movieData.backdrop_path || movieData.poster_path}` ||

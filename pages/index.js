@@ -9,7 +9,7 @@ export default function Home({ results }) {
   return (
     <div className="relative overflow-x-hidden">
       <Head>
-        <title>Movie Junkie</title>
+        <title>Movie Disc • Discover Movies</title>
       </Head>
 
       <Header results={results} />
