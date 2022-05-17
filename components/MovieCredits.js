@@ -14,9 +14,9 @@ function MovieCredits({ credits }) {
               height={502 / 2.5}
               width={335 / 2.5}
               layout="fixed"
-              src={`${BASE_URL}${credit.profile_path}`}
+              src={`${BASE_URL}/${credit.profile_path}`}
               alt={credit.original_name}
-              className="shadow-emerald-100 rounded-3xl"
+              className="rounded-3xl"
             />
             <div className="max-w-[9rem]">
               <p className="font-semibold">{credit.original_name}</p>

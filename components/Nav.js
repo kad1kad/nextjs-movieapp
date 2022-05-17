@@ -27,6 +27,7 @@ function Nav() {
         <MenuList className="!bg-slate-100/90 !border-0 ">
           {Object.entries(requests)
             .slice(2, 11)
+            .sort()
             .map(([key, { title }]) => (
               <MenuItem
                 className="text-md !text-slate-900"
