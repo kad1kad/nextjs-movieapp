@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import useDimensions from "react-cool-dimensions";
 
 function Slideshow({ results }) {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
@@ -42,6 +43,8 @@ function Slideshow({ results }) {
     ]
   );
 
+  const { observe, width } = useDimensions();
+
   return (
     <div ref={sliderRef} className="keen-slider max-h-[70vh] cursor-pointer">
       <div className="keen-slider__slide number-slide1">
@@ -55,17 +58,22 @@ function Slideshow({ results }) {
                 {results[0].overview}{" "}
               </p>
             </div>
-            <Image
-              priority={true}
-              src={
-                `${BASE_URL}${
-                  results[0].backdrop_path || results[0].poster_path
-                }` || `${BASE_URL}${results[0].poster_path}`
-              }
-              height={1080}
-              width={1920}
-              alt={results.title}
-            />
+            <div ref={observe}>
+              <Image
+                priority={true}
+                src={
+                  `${BASE_URL}${
+                    results[0].backdrop_path || results[0].poster_path
+                  }` || `${BASE_URL}${results[0].poster_path}`
+                }
+                height={1080}
+                width={1920}
+                sizes={width !== undefined ? `${Math.round(width)}px` : "100vw"}
+                layout="responsive"
+                alt={results.title}
+                quality={65}
+              />
+            </div>
           </div>
         </Link>
       </div>
@@ -80,16 +88,20 @@ function Slideshow({ results }) {
                 {results[1].overview}{" "}
               </p>
             </div>
-            <Image
-              src={
-                `${BASE_URL}${
-                  results[1].backdrop_path || results[1].poster_path
-                }` || `${BASE_URL}${results[1].poster_path}`
-              }
-              height={1080}
-              width={1920}
-              alt={results.title}
-            />
+            <div ref={observe}>
+              <Image
+                src={
+                  `${BASE_URL}${
+                    results[1].backdrop_path || results[1].poster_path
+                  }` || `${BASE_URL}${results[1].poster_path}`
+                }
+                height={1080}
+                width={1920}
+                sizes={width !== undefined ? `${Math.round(width)}px` : "100vw"}
+                alt={results.title}
+                quality={65}
+              />
+            </div>
           </div>
         </Link>
       </div>
@@ -104,16 +116,20 @@ function Slideshow({ results }) {
                 {results[2].overview}{" "}
               </p>
             </div>
-            <Image
-              src={
-                `${BASE_URL}${
-                  results[2].backdrop_path || results[2].poster_path
-                }` || `${BASE_URL}${results[2].poster_path}`
-              }
-              height={1080}
-              width={1920}
-              alt={results.title}
-            />
+            <div ref={observe}>
+              <Image
+                src={
+                  `${BASE_URL}${
+                    results[2].backdrop_path || results[2].poster_path
+                  }` || `${BASE_URL}${results[2].poster_path}`
+                }
+                height={1080}
+                width={1920}
+                sizes={width !== undefined ? `${Math.round(width)}px` : "100vw"}
+                alt={results.title}
+                quality={65}
+              />
+            </div>
           </div>
         </Link>
       </div>
@@ -136,7 +152,9 @@ function Slideshow({ results }) {
               }
               height={1080}
               width={1920}
+              sizes={width !== undefined ? `${Math.round(width)}px` : "100vw"}
               alt={results.title}
+              quality={65}
             />
           </div>
         </Link>

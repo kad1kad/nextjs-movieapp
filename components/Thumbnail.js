@@ -1,29 +1,35 @@
 /* eslint-disable react/display-name */
 import { ThumbUpIcon } from "@heroicons/react/outline";
 import Image from "next/image";
-
 import Link from "next/link";
+import useDimensions from "react-cool-dimensions";
 
 function Thumbnail({ result }) {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
   const releaseDate = result.release_date || result.first_air_date;
   const releaseYear = releaseDate?.slice(0, 4);
 
+  const { observe, width } = useDimensions();
+
   return (
     <div className="p-2 transition duration-150 ease-in transform cursor-pointer group sm:hover:scale-105 hover:z-8">
       <Link href={`/movie/${result.id}`} key={result.id}>
-        <Image
-          src={
-            `${BASE_URL}${result.backdrop_path || result.poster_path}` ||
-            `${BASE_URL}${result.poster_path}`
-          }
-          height={1080}
-          width={1920}
-          layout="responsive"
-          alt={result.title}
-          className="shadow-lg rounded-xl"
-        />
+        <div ref={observe}>
+          <Image
+            src={
+              `${BASE_URL}${result.backdrop_path || result.poster_path}` ||
+              `${BASE_URL}${result.poster_path}`
+            }
+            width={1920}
+            height={1080}
+            sizes={width !== undefined ? `${Math.round(width)}px` : "100vw"}
+            layout="responsive"
+            alt={result.title}
+            className="rounded-xl"
+          />
+        </div>
       </Link>
+
       <div className="py-2">
         <p className="max-w-md truncate">{result.overview} </p>
       </div>
