@@ -13,6 +13,10 @@ function Movie({ movieData, trailerData, results, movieCredits }) {
     <div className="relative h-screen overflow-x-clip">
       <Head>
         <title>{movieData.title} • Movie Disc</title>
+        <meta
+          name="description"
+          content="Find out more about {movieData.title} on Movie Disc. Trailer, Info, Cast and more."
+        />
       </Head>
       <Image
         src={

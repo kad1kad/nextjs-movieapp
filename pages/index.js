@@ -10,6 +10,7 @@ export default function Home({ results }) {
     <div className="relative overflow-x-hidden">
       <Head>
         <title>Movie Disc • Discover Movies</title>
+        <meta name="description" content="Find movies on Movie Disc." />
       </Head>
 
       <Header results={results} />
