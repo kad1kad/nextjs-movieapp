@@ -90,6 +90,7 @@ function Slideshow({ results }) {
             </div>
             <div ref={observe}>
               <Image
+                priority={true}
                 src={
                   `${BASE_URL}${
                     results[1].backdrop_path || results[1].poster_path
@@ -118,6 +119,7 @@ function Slideshow({ results }) {
             </div>
             <div ref={observe}>
               <Image
+                priority={true}
                 src={
                   `${BASE_URL}${
                     results[2].backdrop_path || results[2].poster_path
@@ -145,6 +147,7 @@ function Slideshow({ results }) {
               </p>
             </div>
             <Image
+              priority={true}
               src={
                 `${BASE_URL}${
                   results[3].backdrop_path || results[3].poster_path
