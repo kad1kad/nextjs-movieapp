@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Nav from "./Nav";
-import Slideshow from "./SlideShow";
+import Slideshow from "./Slideshow";
 
 function Header({ results }) {
   return (
