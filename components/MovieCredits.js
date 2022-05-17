@@ -1,8 +1,9 @@
-import { normalizeConfig } from "next/dist/server/config-shared";
 import Image from "next/image";
 
 function MovieCredits({ credits }) {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
+
+  console.log(credits);
 
   return (
     <section className="overflow-x-scroll scrollbar-hide">

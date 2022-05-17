@@ -7,7 +7,7 @@ import requests from "../utils/requests";
 
 export default function Home({ results }) {
   return (
-    <div className="relative overflow-x-hidden bg-gradient-to-b from-zinc-900">
+    <div className="relative overflow-x-hidden">
       <Head>
         <title>Movie Junkie</title>
       </Head>

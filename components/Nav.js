@@ -1,16 +1,6 @@
 import requests from "../utils/requests";
 import { useRouter } from "next/router";
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-  Button,
-} from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@heroicons/react/outline";
 
 function Nav() {
@@ -32,7 +22,7 @@ function Nav() {
 
       <Menu>
         <MenuButton>
-          Genres <ChevronDownIcon className="inline h-5" />{" "}
+          Genres <ChevronDownIcon className="inline h-3 md:h-4" />{" "}
         </MenuButton>
         <MenuList className="!bg-slate-100/90 !border-0 ">
           {Object.entries(requests)

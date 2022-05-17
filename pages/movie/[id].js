@@ -17,7 +17,7 @@ function Movie({ movieData, trailerData, results, movieCredits }) {
         layout="fill"
         objectFit="cover"
         alt={movieData.title}
-        quality={75}
+        quality={60}
       />
 
       <MovieInfo
